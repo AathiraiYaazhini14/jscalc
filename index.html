@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <style>
+            body{
+                
+                background-color: cadetblue;
+            }
+            table{
+                border: 1px solid black;
+                background-color:dimgray;
+                margin-bottom: 50%;
+                margin-left: 39%;
+                margin-right: 61%;
+                height:65%;
+                width:23%;
+            }
+            [type="button"]{
+                width: 100%;
+                height: 100%;
+                color:black;
+                background-color: lightpink;
+                font-weight: bolder;
+                font-size: larger;
+                
+            }
+
+            #result{
+                height:100%;
+                width:100%;
+                background-color:darkslategray;
+                color:black;
+                font-size: larger;
+            }
+            #r{
+                color:black;
+            }
+            .clear{
+                background-color:rgb(104, 51, 51);
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr id="r">
+                <th colspan="4" >
+                <input type="text" id="result" disabled>
+                </th>
+            </tr>
+            <tr>
+                <td><input type="button" value="C" class="clear" onclick="cleardisp()"></td>
+                <td><input type="button" value="(" onclick="work('(')"></td>
+                <td><input type="button" value=")" onclick="work(')')"></td>
+                <td><input type="button" value="%" onclick="work('%')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="work('7')"></td>
+                <td><input type="button" value="8" onclick="work('8')"></td>
+                <td><input type="button" value="9" onclick="work('9')"></td>
+                <td><input type="button" value="+" onclick="work('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="work('4')"></td>
+                <td><input type="button" value="5" onclick="work('5')"></td>
+                <td><input type="button" value="6" onclick="work('6')"></td>
+                <td><input type="button" value="-" onclick="work('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="work('1')"></td>
+                <td><input type="button" value="2" onclick="work('2')"></td>
+                <td><input type="button" value="3" onclick="work('3')"></td>
+                <td><input type="button" value="*" onclick="work('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="/" onclick="work('/')"></td>
+                <td><input type="button" value="0" onclick="work('0')"></td>
+                <td><input type="button" value="." onclick="work('.')"></td>
+                <td><input type="button" value="=" onclick="calculateResult()"></td>
+            </tr>
+        </table>
+        <script>
+            function work(value){
+                const display=document.getElementById('result');
+                display.value+=value;
+            }
+            function cleardisp(){
+                const display=document.getElementById('result');
+                display.value='';
+            }
+            function calculateResult(){
+                const display=document.getElementById('result');
+                try{
+                    display.value=eval(display.value);
+                }
+                catch(error){
+                    display.value='Error';
+                }
+            }
+        </script>
+    </body>
+</html>
